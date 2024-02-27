@@ -1,45 +1,39 @@
+import { calcularFactorial } from "./calcularFactorial.js";
+import { addTabla } from "./addTabla.js";
+
 function resetInput(input){
-    input.value= ' ';
+    input.value= '';
 }
-function calcFactorial(){
-    //obtener el numero 
-    const input = document.getElementById("num");
-    const usuNum = document.getElementById("num").value;
-    //obtener el cuerpo de la tabla
+
+document.addEventListener("DOMContentLoaded", function(){
+    //obtener el cuerpo donde se va insertar el resultado
     const bodyTable = document.getElementById("dataTable");
-    //variable donde se va almacenar el factorial
-    let factorial;
+    //traer el boton
+    const btnFact = document.getElementById("calcFactorial");
+    //la tabla
+    const tabla = document.getElementById("tabla");
+    console.log(tabla)
 
-    //calcular el factorial
-    if(isNaN(usuNum)){
-        alert("Ingrese un valor numerico")
-    }else if(usuNum < 0){
-        alert("Ingrese un valor positivo");
-    }else if(usuNum == 1 || usuNum == 0){
-        factorial = 1
-    }else{
-        //ciclo que calcula el factorial
-        factorial = 1;
-        for(let i = 1; i <= usuNum; i++){
-            factorial *= i;
+     //obtener el input
+     const input = document.getElementById("num");
+     console.log(input)
+    
+    //agregdo el evento al boton
+    btnFact.addEventListener("click", ()=>{
+        //obtener el dato del factorial
+        let num = document.getElementById("num").value;
+        //revisar si el input esta vacio
+        if(num === ""){
+            num = 0;
         }
-        //ingresar datos a la tabla
-        console.log(bodyTable)
-        //crear la fila
-        const newFila = bodyTable.insertRow()
-        const cell = newFila.insertCell(0);
-        const cell2 = newFila.insertCell(1);
-    
-        //agregar los valores a la celda
-        cell.textContent = usuNum;
-        cell2.textContent = factorial;
-
-    }
-
-    resetInput(input)
+        //llamar la funcion que calcula el factorial y almacenar el valor en una variable
+        let resultado = calcularFactorial(num);
+        addTabla(num, resultado,bodyTable, tabla);
+        resetInput(input);
+        
+    })
 
     
 
+})
 
-    
-}
