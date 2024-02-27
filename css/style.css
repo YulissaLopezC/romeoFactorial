@@ -25,7 +25,6 @@ label{
 }
 
 input[type="text"],
-button[type="submit"],
 button[type="button"]{
     width: 100%;
     padding: 10px;
@@ -35,7 +34,6 @@ button[type="button"]{
     box-sizing: border-box;
 }
 
-button[type="submit"],
 button[type="button"]{
     background-color: #007bff;
     color: #fff;
@@ -43,15 +41,13 @@ button[type="button"]{
     cursor: pointer;
 }
 
-button[type="submit"]:hover,
 button[type="button"]:hover {
     background-color: #0056b3;
 }
 
 table{
-    width: 80%;
+    width: 100%;
     border-collapse: collapse;
-    margin: 50px auto;
 }
 
 th {

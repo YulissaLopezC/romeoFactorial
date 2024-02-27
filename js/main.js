@@ -1,5 +1,9 @@
+function resetInput(input){
+    input.value= ' ';
+}
 function calcFactorial(){
     //obtener el numero 
+    const input = document.getElementById("num");
     const usuNum = document.getElementById("num").value;
     //obtener el cuerpo de la tabla
     const bodyTable = document.getElementById("dataTable");
@@ -29,7 +33,10 @@ function calcFactorial(){
         //agregar los valores a la celda
         cell.textContent = usuNum;
         cell2.textContent = factorial;
+
     }
+
+    resetInput(input)
 
     
 
